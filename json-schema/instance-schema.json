@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google-cloud-bigtable/refs/heads/main/json-schema/instance-schema.json",
+  "title": "Google Cloud Bigtable Instance",
+  "description": "A Cloud Bigtable instance resource representing a container for clusters, tables, and application profiles.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The unique name of the instance in the format projects/{project}/instances/{instance}.",
+      "pattern": "^projects/[^/]+/instances/[^/]+$"
+    },
+    "displayName": {
+      "type": "string",
+      "description": "The descriptive name for this instance as it appears in the UI.",
+      "minLength": 4,
+      "maxLength": 30
+    },
+    "state": {
+      "type": "string",
+      "enum": ["STATE_NOT_KNOWN", "READY", "CREATING"],
+      "description": "The current state of the instance."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["TYPE_UNSPECIFIED", "PRODUCTION", "DEVELOPMENT"],
+      "description": "The type of the instance. PRODUCTION instances have a minimum of three nodes and can have replication configured. DEVELOPMENT instances are single-node and do not support replication."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels for the instance as key-value pairs."
+    },
+    "createTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The creation time of the instance."
+    },
+    "satisfiesPzs": {
+      "type": "boolean",
+      "description": "Whether the instance satisfies the zone separation requirements."
+    }
+  },
+  "required": ["displayName", "type"]
+}

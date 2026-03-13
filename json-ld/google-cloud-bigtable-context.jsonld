@@ -1,0 +1,23 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "bigtable": "https://cloud.google.com/bigtable/docs/reference/admin/rest/v2/",
+    "gcloud": "https://cloud.google.com/apis/",
+    "Instance": "bigtable:projects.instances",
+    "Cluster": "bigtable:projects.instances.clusters",
+    "Table": "bigtable:projects.instances.tables",
+    "ColumnFamily": "bigtable:columnFamilies",
+    "Backup": "bigtable:projects.instances.clusters.backups",
+    "name": "schema:name",
+    "displayName": "schema:alternateName",
+    "description": "schema:description",
+    "state": "bigtable:state",
+    "type": "bigtable:instanceType",
+    "labels": "schema:keywords",
+    "createTime": "schema:dateCreated",
+    "location": "schema:location",
+    "serveNodes": "bigtable:serveNodes",
+    "defaultStorageType": "bigtable:defaultStorageType",
+    "project": "gcloud:project"
+  }
+}
