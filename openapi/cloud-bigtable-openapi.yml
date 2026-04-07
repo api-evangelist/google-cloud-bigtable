@@ -28,7 +28,7 @@ paths:
     get:
       tags:
         - Instances
-      summary: List instances
+      summary: Google Cloud Bigtable List instances
       description: Lists all instances in a project.
       operationId: listInstances
       parameters:
@@ -55,7 +55,7 @@ paths:
     post:
       tags:
         - Instances
-      summary: Create an instance
+      summary: Google Cloud Bigtable Create an instance
       description: Creates an instance within a project.
       operationId: createInstance
       parameters:
@@ -85,7 +85,7 @@ paths:
     get:
       tags:
         - Instances
-      summary: Get an instance
+      summary: Google Cloud Bigtable Get an instance
       description: Gets information about an instance.
       operationId: getInstance
       parameters:
@@ -113,7 +113,7 @@ paths:
     put:
       tags:
         - Instances
-      summary: Update an instance
+      summary: Google Cloud Bigtable Update an instance
       description: Updates an instance within a project.
       operationId: updateInstance
       parameters:
@@ -147,7 +147,7 @@ paths:
     delete:
       tags:
         - Instances
-      summary: Delete an instance
+      summary: Google Cloud Bigtable Delete an instance
       description: Deletes an instance from a project.
       operationId: deleteInstance
       parameters:
@@ -172,7 +172,7 @@ paths:
     get:
       tags:
         - Tables
-      summary: List tables
+      summary: Google Cloud Bigtable List tables
       description: Lists all tables served from a specified instance.
       operationId: listTables
       parameters:
@@ -204,7 +204,7 @@ paths:
     post:
       tags:
         - Tables
-      summary: Create a table
+      summary: Google Cloud Bigtable Create a table
       description: Creates a new table in the specified instance.
       operationId: createTable
       parameters:
@@ -239,7 +239,7 @@ paths:
     get:
       tags:
         - Tables
-      summary: Get a table
+      summary: Google Cloud Bigtable Get a table
       description: Gets metadata information about the specified table.
       operationId: getTable
       parameters:
@@ -272,7 +272,7 @@ paths:
     delete:
       tags:
         - Tables
-      summary: Delete a table
+      summary: Google Cloud Bigtable Delete a table
       description: Permanently deletes a specified table and all of its data.
       operationId: deleteTable
       parameters:
@@ -302,7 +302,7 @@ paths:
     get:
       tags:
         - Clusters
-      summary: List clusters
+      summary: Google Cloud Bigtable List clusters
       description: Lists information about clusters in an instance.
       operationId: listClusters
       parameters:
