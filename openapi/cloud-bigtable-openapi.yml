@@ -17,10 +17,10 @@ servers:
   - url: https://bigtableadmin.googleapis.com/v2
     description: Cloud Bigtable Admin API v2
 tags:
-  - name: Instances
-    description: Operations on Bigtable instances
   - name: Clusters
     description: Operations on Bigtable clusters within instances
+  - name: Instances
+    description: Operations on Bigtable instances
   - name: Tables
     description: Operations on Bigtable tables
 paths:
