@@ -1,0 +1,588 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Bigtable Admin API
+  description: The Cloud Bigtable Admin API provides programmatic access to manage Cloud Bigtable instances, clusters, tables,
+    and related resources. It allows administrators to create and configure Bigtable infrastructure for high-throughput, low-latency
+    NoSQL workloads.
+  tags:
+  - Google
+  - Cloud
+  - Bigtable
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-cloud-bigtable
+    baseUri: https://bigtableadmin.googleapis.com/v2
+    description: Google Cloud Bigtable Admin API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{GOOGLE_CLOUD_BIGTABLE_TOKEN}}'
+    resources:
+    - name: projects-project-instances
+      path: /projects/{project}/instances
+      operations:
+      - name: listinstances
+        method: GET
+        description: Google Cloud Bigtable List instances
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: pageToken
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createinstance
+        method: POST
+        description: Google Cloud Bigtable Create an instance
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-project-instances-instance
+      path: /projects/{project}/instances/{instance}
+      operations:
+      - name: getinstance
+        method: GET
+        description: Google Cloud Bigtable Get an instance
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: instance
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateinstance
+        method: PUT
+        description: Google Cloud Bigtable Update an instance
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: instance
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteinstance
+        method: DELETE
+        description: Google Cloud Bigtable Delete an instance
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: instance
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-project-instances-instance-tables
+      path: /projects/{project}/instances/{instance}/tables
+      operations:
+      - name: listtables
+        method: GET
+        description: Google Cloud Bigtable List tables
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: instance
+          in: path
+          type: string
+          required: true
+        - name: pageToken
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createtable
+        method: POST
+        description: Google Cloud Bigtable Create a table
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: instance
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-project-instances-instance-tables-table
+      path: /projects/{project}/instances/{instance}/tables/{table}
+      operations:
+      - name: gettable
+        method: GET
+        description: Google Cloud Bigtable Get a table
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: instance
+          in: path
+          type: string
+          required: true
+        - name: table
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletetable
+        method: DELETE
+        description: Google Cloud Bigtable Delete a table
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: instance
+          in: path
+          type: string
+          required: true
+        - name: table
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-project-instances-instance-clusters
+      path: /projects/{project}/instances/{instance}/clusters
+      operations:
+      - name: listclusters
+        method: GET
+        description: Google Cloud Bigtable List clusters
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: instance
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-cloud-bigtable-rest
+    description: REST adapter for Google Cloud Bigtable Admin API.
+    resources:
+    - path: /projects/{project}/instances
+      name: listinstances
+      operations:
+      - method: GET
+        name: listinstances
+        description: Google Cloud Bigtable List instances
+        call: google-cloud-bigtable.listinstances
+        with:
+          project: rest.project
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/instances
+      name: createinstance
+      operations:
+      - method: POST
+        name: createinstance
+        description: Google Cloud Bigtable Create an instance
+        call: google-cloud-bigtable.createinstance
+        with:
+          project: rest.project
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/instances/{instance}
+      name: getinstance
+      operations:
+      - method: GET
+        name: getinstance
+        description: Google Cloud Bigtable Get an instance
+        call: google-cloud-bigtable.getinstance
+        with:
+          project: rest.project
+          instance: rest.instance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/instances/{instance}
+      name: updateinstance
+      operations:
+      - method: PUT
+        name: updateinstance
+        description: Google Cloud Bigtable Update an instance
+        call: google-cloud-bigtable.updateinstance
+        with:
+          project: rest.project
+          instance: rest.instance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/instances/{instance}
+      name: deleteinstance
+      operations:
+      - method: DELETE
+        name: deleteinstance
+        description: Google Cloud Bigtable Delete an instance
+        call: google-cloud-bigtable.deleteinstance
+        with:
+          project: rest.project
+          instance: rest.instance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/instances/{instance}/tables
+      name: listtables
+      operations:
+      - method: GET
+        name: listtables
+        description: Google Cloud Bigtable List tables
+        call: google-cloud-bigtable.listtables
+        with:
+          project: rest.project
+          instance: rest.instance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/instances/{instance}/tables
+      name: createtable
+      operations:
+      - method: POST
+        name: createtable
+        description: Google Cloud Bigtable Create a table
+        call: google-cloud-bigtable.createtable
+        with:
+          project: rest.project
+          instance: rest.instance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/instances/{instance}/tables/{table}
+      name: gettable
+      operations:
+      - method: GET
+        name: gettable
+        description: Google Cloud Bigtable Get a table
+        call: google-cloud-bigtable.gettable
+        with:
+          project: rest.project
+          instance: rest.instance
+          table: rest.table
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/instances/{instance}/tables/{table}
+      name: deletetable
+      operations:
+      - method: DELETE
+        name: deletetable
+        description: Google Cloud Bigtable Delete a table
+        call: google-cloud-bigtable.deletetable
+        with:
+          project: rest.project
+          instance: rest.instance
+          table: rest.table
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/instances/{instance}/clusters
+      name: listclusters
+      operations:
+      - method: GET
+        name: listclusters
+        description: Google Cloud Bigtable List clusters
+        call: google-cloud-bigtable.listclusters
+        with:
+          project: rest.project
+          instance: rest.instance
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-cloud-bigtable-mcp
+    transport: http
+    description: MCP adapter for Google Cloud Bigtable Admin API for AI agent use.
+    tools:
+    - name: listinstances
+      description: Google Cloud Bigtable List instances
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-bigtable.listinstances
+      with:
+        project: tools.project
+        pageToken: tools.pageToken
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: pageToken
+        type: string
+        description: pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createinstance
+      description: Google Cloud Bigtable Create an instance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-bigtable.createinstance
+      with:
+        project: tools.project
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getinstance
+      description: Google Cloud Bigtable Get an instance
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-bigtable.getinstance
+      with:
+        project: tools.project
+        instance: tools.instance
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: instance
+        type: string
+        description: instance
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updateinstance
+      description: Google Cloud Bigtable Update an instance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: google-cloud-bigtable.updateinstance
+      with:
+        project: tools.project
+        instance: tools.instance
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: instance
+        type: string
+        description: instance
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteinstance
+      description: Google Cloud Bigtable Delete an instance
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: google-cloud-bigtable.deleteinstance
+      with:
+        project: tools.project
+        instance: tools.instance
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: instance
+        type: string
+        description: instance
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listtables
+      description: Google Cloud Bigtable List tables
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-bigtable.listtables
+      with:
+        project: tools.project
+        instance: tools.instance
+        pageToken: tools.pageToken
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: instance
+        type: string
+        description: instance
+        required: true
+      - name: pageToken
+        type: string
+        description: pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createtable
+      description: Google Cloud Bigtable Create a table
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-bigtable.createtable
+      with:
+        project: tools.project
+        instance: tools.instance
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: instance
+        type: string
+        description: instance
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gettable
+      description: Google Cloud Bigtable Get a table
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-bigtable.gettable
+      with:
+        project: tools.project
+        instance: tools.instance
+        table: tools.table
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: instance
+        type: string
+        description: instance
+        required: true
+      - name: table
+        type: string
+        description: table
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletetable
+      description: Google Cloud Bigtable Delete a table
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: google-cloud-bigtable.deletetable
+      with:
+        project: tools.project
+        instance: tools.instance
+        table: tools.table
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: instance
+        type: string
+        description: instance
+        required: true
+      - name: table
+        type: string
+        description: table
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listclusters
+      description: Google Cloud Bigtable List clusters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-bigtable.listclusters
+      with:
+        project: tools.project
+        instance: tools.instance
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: instance
+        type: string
+        description: instance
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_BIGTABLE_TOKEN: GOOGLE_CLOUD_BIGTABLE_TOKEN
