@@ -5,7 +5,7 @@ description: >-
   operational workloads. It offers consistent sub-10ms latency and seamless scalability, making it ideal for time-series
   data, IoT, ad tech, fintech, and machine learning applications. Bigtable integrates with popular big data tools like
   Hadoop, Dataflow, and Dataproc.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-bigtable/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -23,7 +23,7 @@ apis:
       The Cloud Bigtable Admin API provides programmatic access to manage Cloud Bigtable instances, clusters, tables,
       and related resources. It enables creating and configuring Bigtable infrastructure, managing column families,
       handling backups, and setting access control policies for high-throughput NoSQL workloads.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://cloud.google.com/bigtable/docs
     baseURL: https://bigtableadmin.googleapis.com/v2
     tags:
