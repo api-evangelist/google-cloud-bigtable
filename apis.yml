@@ -43,6 +43,12 @@ apis:
       - type: JSONSchema
         url: json-schema/instance-schema.json
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-cloud-bigtable-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-cloud-bigtable-domain-security.yml
+  - type: Authentication
+    url: authentication/google-cloud-bigtable-authentication.yml
   - type: OAuthScopes
     url: scopes/google-cloud-bigtable-scopes.yml
   - type: GitHubOrganization
