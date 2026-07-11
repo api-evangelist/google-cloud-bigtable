@@ -1,0 +1,29 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/cloud-bigtable-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/cloud-bigtable-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.google.com/o/oauth2/auth
+    tokenUrl: https://oauth2.googleapis.com/token
+scopes:
+- scope: https://www.googleapis.com/auth/bigtable.admin
+  description: Administer Bigtable instances and tables
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/cloud-bigtable-openapi.yml
+- scope: https://www.googleapis.com/auth/bigtable.admin.table
+  description: Administer Bigtable tables
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/cloud-bigtable-openapi.yml
+- scope: https://www.googleapis.com/auth/cloud-platform
+  description: Full access to Cloud Platform
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/cloud-bigtable-openapi.yml

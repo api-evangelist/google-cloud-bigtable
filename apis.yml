@@ -43,6 +43,8 @@ apis:
       - type: JSONSchema
         url: json-schema/instance-schema.json
 common:
+  - type: OAuthScopes
+    url: scopes/google-cloud-bigtable-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/GoogleCloudPlatform
   - type: Portal
@@ -67,6 +69,8 @@ common:
     url: json-ld/google-cloud-bigtable-context.jsonld
   - type: Integrations
     url: https://cloud.google.com/marketplace
+  - url: https://docs.cloud.google.com/feeds/bigtable-release-notes.xml
+    type: Blog
 integrations:
   - name: Become a Partner
 maintainers:
