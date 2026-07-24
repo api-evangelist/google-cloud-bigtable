@@ -1,0 +1,272 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Bigtable Admin Clusters Instances API
+  description: The Cloud Bigtable Admin API provides programmatic access to manage Cloud Bigtable instances, clusters, tables, and related resources. It allows administrators to create and configure Bigtable infrastructure for high-throughput, low-latency NoSQL workloads.
+  version: v2
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/bigtable/docs/reference/admin/rest
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://bigtableadmin.googleapis.com/v2
+  description: Cloud Bigtable Admin API v2
+tags:
+- name: Instances
+  description: Operations on Bigtable instances
+paths:
+  /projects/{project}/instances:
+    get:
+      tags:
+      - Instances
+      summary: Google Cloud Bigtable List instances
+      description: Lists all instances in a project.
+      operationId: listInstances
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInstancesResponse'
+      security:
+      - oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/bigtable.admin
+    post:
+      tags:
+      - Instances
+      summary: Google Cloud Bigtable Create an instance
+      description: Creates an instance within a project.
+      operationId: createInstance
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateInstanceRequest'
+      responses:
+        '200':
+          description: Instance creation initiated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      security:
+      - oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/bigtable.admin
+  /projects/{project}/instances/{instance}:
+    get:
+      tags:
+      - Instances
+      summary: Google Cloud Bigtable Get an instance
+      description: Gets information about an instance.
+      operationId: getInstance
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: instance
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Instance'
+      security:
+      - oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/bigtable.admin
+    put:
+      tags:
+      - Instances
+      summary: Google Cloud Bigtable Update an instance
+      description: Updates an instance within a project.
+      operationId: updateInstance
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: instance
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Instance'
+      responses:
+        '200':
+          description: Instance updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Instance'
+      security:
+      - oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/bigtable.admin
+    delete:
+      tags:
+      - Instances
+      summary: Google Cloud Bigtable Delete an instance
+      description: Deletes an instance from a project.
+      operationId: deleteInstance
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: instance
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Instance deleted successfully
+      security:
+      - oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/bigtable.admin
+components:
+  schemas:
+    CreateInstanceRequest:
+      type: object
+      properties:
+        instanceId:
+          type: string
+        instance:
+          $ref: '#/components/schemas/Instance'
+        clusters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Cluster'
+      required:
+      - instanceId
+      - instance
+      - clusters
+    Instance:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The unique name of the instance resource.
+        displayName:
+          type: string
+          description: The descriptive name for this instance.
+        state:
+          type: string
+          enum:
+          - STATE_NOT_KNOWN
+          - READY
+          - CREATING
+          description: The current state of the instance.
+        type:
+          type: string
+          enum:
+          - TYPE_UNSPECIFIED
+          - PRODUCTION
+          - DEVELOPMENT
+          description: The type of the instance.
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        createTime:
+          type: string
+          format: date-time
+    Cluster:
+      type: object
+      properties:
+        name:
+          type: string
+        location:
+          type: string
+        state:
+          type: string
+          enum:
+          - STATE_NOT_KNOWN
+          - READY
+          - CREATING
+          - RESIZING
+          - DISABLED
+        serveNodes:
+          type: integer
+        defaultStorageType:
+          type: string
+          enum:
+          - STORAGE_TYPE_UNSPECIFIED
+          - SSD
+          - HDD
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+        metadata:
+          type: object
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+    ListInstancesResponse:
+      type: object
+      properties:
+        instances:
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        failedLocations:
+          type: array
+          items:
+            type: string
+        nextPageToken:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Cloud Platform
+            https://www.googleapis.com/auth/bigtable.admin: Administer Bigtable instances and tables
+            https://www.googleapis.com/auth/bigtable.admin.table: Administer Bigtable tables

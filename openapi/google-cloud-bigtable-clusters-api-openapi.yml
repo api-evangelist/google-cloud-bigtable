@@ -1,0 +1,96 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Bigtable Admin Clusters API
+  description: The Cloud Bigtable Admin API provides programmatic access to manage Cloud Bigtable instances, clusters, tables, and related resources. It allows administrators to create and configure Bigtable infrastructure for high-throughput, low-latency NoSQL workloads.
+  version: v2
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/bigtable/docs/reference/admin/rest
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://bigtableadmin.googleapis.com/v2
+  description: Cloud Bigtable Admin API v2
+tags:
+- name: Clusters
+  description: Operations on Bigtable clusters within instances
+paths:
+  /projects/{project}/instances/{instance}/clusters:
+    get:
+      tags:
+      - Clusters
+      summary: Google Cloud Bigtable List clusters
+      description: Lists information about clusters in an instance.
+      operationId: listClusters
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: instance
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClustersResponse'
+      security:
+      - oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/bigtable.admin
+components:
+  schemas:
+    Cluster:
+      type: object
+      properties:
+        name:
+          type: string
+        location:
+          type: string
+        state:
+          type: string
+          enum:
+          - STATE_NOT_KNOWN
+          - READY
+          - CREATING
+          - RESIZING
+          - DISABLED
+        serveNodes:
+          type: integer
+        defaultStorageType:
+          type: string
+          enum:
+          - STORAGE_TYPE_UNSPECIFIED
+          - SSD
+          - HDD
+    ListClustersResponse:
+      type: object
+      properties:
+        clusters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cluster'
+        failedLocations:
+          type: array
+          items:
+            type: string
+        nextPageToken:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Cloud Platform
+            https://www.googleapis.com/auth/bigtable.admin: Administer Bigtable instances and tables
+            https://www.googleapis.com/auth/bigtable.admin.table: Administer Bigtable tables

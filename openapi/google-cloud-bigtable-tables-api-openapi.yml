@@ -1,0 +1,206 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Bigtable Admin Clusters Tables API
+  description: The Cloud Bigtable Admin API provides programmatic access to manage Cloud Bigtable instances, clusters, tables, and related resources. It allows administrators to create and configure Bigtable infrastructure for high-throughput, low-latency NoSQL workloads.
+  version: v2
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/bigtable/docs/reference/admin/rest
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://bigtableadmin.googleapis.com/v2
+  description: Cloud Bigtable Admin API v2
+tags:
+- name: Tables
+  description: Operations on Bigtable tables
+paths:
+  /projects/{project}/instances/{instance}/tables:
+    get:
+      tags:
+      - Tables
+      summary: Google Cloud Bigtable List tables
+      description: Lists all tables served from a specified instance.
+      operationId: listTables
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: instance
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTablesResponse'
+      security:
+      - oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/bigtable.admin
+    post:
+      tags:
+      - Tables
+      summary: Google Cloud Bigtable Create a table
+      description: Creates a new table in the specified instance.
+      operationId: createTable
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: instance
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTableRequest'
+      responses:
+        '200':
+          description: Table created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Table'
+      security:
+      - oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/bigtable.admin
+  /projects/{project}/instances/{instance}/tables/{table}:
+    get:
+      tags:
+      - Tables
+      summary: Google Cloud Bigtable Get a table
+      description: Gets metadata information about the specified table.
+      operationId: getTable
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: instance
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: table
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Table'
+      security:
+      - oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/bigtable.admin
+    delete:
+      tags:
+      - Tables
+      summary: Google Cloud Bigtable Delete a table
+      description: Permanently deletes a specified table and all of its data.
+      operationId: deleteTable
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: instance
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: table
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Table deleted successfully
+      security:
+      - oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/bigtable.admin
+components:
+  schemas:
+    ListTablesResponse:
+      type: object
+      properties:
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/Table'
+        nextPageToken:
+          type: string
+    Table:
+      type: object
+      properties:
+        name:
+          type: string
+        columnFamilies:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ColumnFamily'
+        granularity:
+          type: string
+          enum:
+          - TIMESTAMP_GRANULARITY_UNSPECIFIED
+          - MILLIS
+    GcRule:
+      type: object
+      properties:
+        maxNumVersions:
+          type: integer
+        maxAge:
+          type: string
+          description: Duration string (e.g., 86400s)
+    CreateTableRequest:
+      type: object
+      properties:
+        tableId:
+          type: string
+        table:
+          $ref: '#/components/schemas/Table'
+      required:
+      - tableId
+    ColumnFamily:
+      type: object
+      properties:
+        gcRule:
+          $ref: '#/components/schemas/GcRule'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Cloud Platform
+            https://www.googleapis.com/auth/bigtable.admin: Administer Bigtable instances and tables
+            https://www.googleapis.com/auth/bigtable.admin.table: Administer Bigtable tables
