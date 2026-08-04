@@ -1,0 +1,718 @@
+{
+  "info": {
+    "_postman_id": "66dab331-a116-43bf-91b3-7220f5b3975a",
+    "name": "Google Cloud Bigtable Admin Clusters Instances API",
+    "description": "The Cloud Bigtable Admin API provides programmatic access to manage Cloud Bigtable instances, clusters, tables, and related resources. It allows administrators to create and configure Bigtable infrastructure for high-throughput, low-latency NoSQL workloads.\n\nContact Support:\n Name: Google Cloud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:16.000Z",
+    "updatedAt": "2026-07-28T01:46:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-66dab331-a116-43bf-91b3-7220f5b3975a"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{project}",
+          "item": [
+            {
+              "name": "instances",
+              "item": [
+                {
+                  "name": "{instance}",
+                  "item": [
+                    {
+                      "name": "Google Cloud Bigtable Get an instance",
+                      "id": "b8654d47-1b6f-4be7-aa4f-c3bca4d6a202",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/bigtable.admin https://www.googleapis.com/auth/bigtable.admin.table",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://oauth2.googleapis.com/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://accounts.google.com/o/oauth2/auth",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project/instances/:instance",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project",
+                            "instances",
+                            ":instance"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d1198cc4-7fe3-4863-8510-f6a740229da0",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "ab615fd0-9f55-4981-a507-9c9fa1ec4d84",
+                              "key": "instance",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Gets information about an instance."
+                      },
+                      "response": [
+                        {
+                          "id": "3bce8a15-59cd-4337-a435-bae184ff3cd8",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:project/instances/:instance",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":project",
+                                "instances",
+                                ":instance"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                },
+                                {
+                                  "key": "instance"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"state\": \"CREATING\",\n  \"type\": \"PRODUCTION\",\n  \"labels\": {\n    \"exercitation3c\": \"<string>\",\n    \"nisia8\": \"<string>\",\n    \"minima\": \"<string>\",\n    \"quis6_\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:46:16.000Z",
+                          "updatedAt": "2026-07-28T01:46:16.000Z",
+                          "uid": "35240-3bce8a15-59cd-4337-a435-bae184ff3cd8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:46:16.000Z",
+                      "updatedAt": "2026-07-28T01:46:16.000Z",
+                      "uid": "35240-b8654d47-1b6f-4be7-aa4f-c3bca4d6a202"
+                    },
+                    {
+                      "name": "Google Cloud Bigtable Update an instance",
+                      "id": "ff3f5b6e-16d0-4f14-a4ab-20cc32316c06",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/bigtable.admin https://www.googleapis.com/auth/bigtable.admin.table",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://oauth2.googleapis.com/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://accounts.google.com/o/oauth2/auth",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"state\": \"CREATING\",\n  \"type\": \"PRODUCTION\",\n  \"labels\": {\n    \"exercitation3c\": \"<string>\",\n    \"nisia8\": \"<string>\",\n    \"minima\": \"<string>\",\n    \"quis6_\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project/instances/:instance",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project",
+                            "instances",
+                            ":instance"
+                          ],
+                          "variable": [
+                            {
+                              "id": "261d4fcf-fcaf-4206-a1f3-6d380b3688af",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "a4c5578b-67a1-4226-81ce-3711c2745734",
+                              "key": "instance",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Updates an instance within a project."
+                      },
+                      "response": [
+                        {
+                          "id": "c6786a7c-6d91-4862-9368-9d038da4cb1c",
+                          "name": "Instance updated successfully",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"state\": \"CREATING\",\n  \"type\": \"PRODUCTION\",\n  \"labels\": {\n    \"exercitation3c\": \"<string>\",\n    \"nisia8\": \"<string>\",\n    \"minima\": \"<string>\",\n    \"quis6_\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:project/instances/:instance",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":project",
+                                "instances",
+                                ":instance"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                },
+                                {
+                                  "key": "instance"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"state\": \"CREATING\",\n  \"type\": \"PRODUCTION\",\n  \"labels\": {\n    \"exercitation3c\": \"<string>\",\n    \"nisia8\": \"<string>\",\n    \"minima\": \"<string>\",\n    \"quis6_\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:46:16.000Z",
+                          "updatedAt": "2026-07-28T01:46:16.000Z",
+                          "uid": "35240-c6786a7c-6d91-4862-9368-9d038da4cb1c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:46:16.000Z",
+                      "updatedAt": "2026-07-28T01:46:16.000Z",
+                      "uid": "35240-ff3f5b6e-16d0-4f14-a4ab-20cc32316c06"
+                    },
+                    {
+                      "name": "Google Cloud Bigtable Delete an instance",
+                      "id": "b5e276e1-b094-46c0-aaad-9269af99c965",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/bigtable.admin https://www.googleapis.com/auth/bigtable.admin.table",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://oauth2.googleapis.com/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://accounts.google.com/o/oauth2/auth",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project/instances/:instance",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project",
+                            "instances",
+                            ":instance"
+                          ],
+                          "variable": [
+                            {
+                              "id": "2a082a1d-8070-4885-b60a-48b231c53654",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "274ee4eb-62f9-426e-996c-a9eac1e478ba",
+                              "key": "instance",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Deletes an instance from a project."
+                      },
+                      "response": [
+                        {
+                          "id": "2a34a654-9b8c-4261-999b-56fd8ba6c016",
+                          "name": "Instance deleted successfully",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:project/instances/:instance",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":project",
+                                "instances",
+                                ":instance"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                },
+                                {
+                                  "key": "instance"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:46:16.000Z",
+                          "updatedAt": "2026-07-28T01:46:16.000Z",
+                          "uid": "35240-2a34a654-9b8c-4261-999b-56fd8ba6c016"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:46:16.000Z",
+                      "updatedAt": "2026-07-28T01:46:16.000Z",
+                      "uid": "35240-b5e276e1-b094-46c0-aaad-9269af99c965"
+                    }
+                  ],
+                  "id": "bfcda3d1-eae7-4da0-bc68-2f73b743c804",
+                  "createdAt": "2026-07-28T01:46:16.000Z",
+                  "updatedAt": "2026-07-28T01:46:16.000Z",
+                  "uid": "35240-bfcda3d1-eae7-4da0-bc68-2f73b743c804"
+                },
+                {
+                  "name": "Google Cloud Bigtable List instances",
+                  "id": "ae9982b2-b0cd-490d-b4ce-bed5d43a17e7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/bigtable.admin https://www.googleapis.com/auth/bigtable.admin.table",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://oauth2.googleapis.com/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.google.com/o/oauth2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "authorization_code",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:project/instances?pageToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":project",
+                        "instances"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageToken",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "b00a5be9-6c0c-44ba-be7e-dcefc37d07bd",
+                          "key": "project",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Lists all instances in a project."
+                  },
+                  "response": [
+                    {
+                      "id": "9250a773-1b7b-4ac9-a06d-cc98e7d3f465",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project/instances?pageToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project",
+                            "instances"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "project"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"instances\": [\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"state\": \"CREATING\",\n      \"type\": \"DEVELOPMENT\",\n      \"labels\": {\n        \"aliqua_8\": \"<string>\",\n        \"magna2\": \"<string>\",\n        \"docf\": \"<string>\"\n      },\n      \"createTime\": \"<dateTime>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"state\": \"READY\",\n      \"type\": \"TYPE_UNSPECIFIED\",\n      \"labels\": {\n        \"in_8d\": \"<string>\"\n      },\n      \"createTime\": \"<dateTime>\"\n    }\n  ],\n  \"failedLocations\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:46:16.000Z",
+                      "updatedAt": "2026-07-28T01:46:16.000Z",
+                      "uid": "35240-9250a773-1b7b-4ac9-a06d-cc98e7d3f465"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:46:16.000Z",
+                  "updatedAt": "2026-07-28T01:46:16.000Z",
+                  "uid": "35240-ae9982b2-b0cd-490d-b4ce-bed5d43a17e7"
+                },
+                {
+                  "name": "Google Cloud Bigtable Create an instance",
+                  "id": "512c1829-834b-4958-8bd2-8e209c358af9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/bigtable.admin https://www.googleapis.com/auth/bigtable.admin.table",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://oauth2.googleapis.com/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.google.com/o/oauth2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "authorization_code",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"instanceId\": \"<string>\",\n  \"instance\": {\n    \"name\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"state\": \"CREATING\",\n    \"type\": \"DEVELOPMENT\",\n    \"labels\": {\n      \"sint_610\": \"<string>\"\n    },\n    \"createTime\": \"<dateTime>\"\n  },\n  \"clusters\": {\n    \"tempor488\": {\n      \"name\": \"<string>\",\n      \"location\": \"<string>\",\n      \"state\": \"CREATING\",\n      \"serveNodes\": \"<integer>\",\n      \"defaultStorageType\": \"STORAGE_TYPE_UNSPECIFIED\"\n    },\n    \"dolorea2\": {\n      \"name\": \"<string>\",\n      \"location\": \"<string>\",\n      \"state\": \"DISABLED\",\n      \"serveNodes\": \"<integer>\",\n      \"defaultStorageType\": \"HDD\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:project/instances",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":project",
+                        "instances"
+                      ],
+                      "variable": [
+                        {
+                          "id": "344598c5-b7ef-4bf4-ba0a-69d70019cf66",
+                          "key": "project",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Creates an instance within a project."
+                  },
+                  "response": [
+                    {
+                      "id": "4af18743-7fcb-4f2e-bf52-9cadd5bd9063",
+                      "name": "Instance creation initiated",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"instanceId\": \"<string>\",\n  \"instance\": {\n    \"name\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"state\": \"CREATING\",\n    \"type\": \"DEVELOPMENT\",\n    \"labels\": {\n      \"sint_610\": \"<string>\"\n    },\n    \"createTime\": \"<dateTime>\"\n  },\n  \"clusters\": {\n    \"tempor488\": {\n      \"name\": \"<string>\",\n      \"location\": \"<string>\",\n      \"state\": \"CREATING\",\n      \"serveNodes\": \"<integer>\",\n      \"defaultStorageType\": \"STORAGE_TYPE_UNSPECIFIED\"\n    },\n    \"dolorea2\": {\n      \"name\": \"<string>\",\n      \"location\": \"<string>\",\n      \"state\": \"DISABLED\",\n      \"serveNodes\": \"<integer>\",\n      \"defaultStorageType\": \"HDD\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project/instances",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project",
+                            "instances"
+                          ],
+                          "variable": [
+                            {
+                              "key": "project"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<string>\",\n  \"done\": \"<boolean>\",\n  \"metadata\": {},\n  \"error\": {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:46:16.000Z",
+                      "updatedAt": "2026-07-28T01:46:16.000Z",
+                      "uid": "35240-4af18743-7fcb-4f2e-bf52-9cadd5bd9063"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:46:16.000Z",
+                  "updatedAt": "2026-07-28T01:46:16.000Z",
+                  "uid": "35240-512c1829-834b-4958-8bd2-8e209c358af9"
+                }
+              ],
+              "id": "8416f835-3490-44ea-97c6-913ef870e3a5",
+              "createdAt": "2026-07-28T01:46:16.000Z",
+              "updatedAt": "2026-07-28T01:46:16.000Z",
+              "uid": "35240-8416f835-3490-44ea-97c6-913ef870e3a5"
+            }
+          ],
+          "id": "ef74df79-684a-4fbd-8088-9b1019fb240f",
+          "createdAt": "2026-07-28T01:46:16.000Z",
+          "updatedAt": "2026-07-28T01:46:16.000Z",
+          "uid": "35240-ef74df79-684a-4fbd-8088-9b1019fb240f"
+        }
+      ],
+      "id": "2940b736-85b3-49f5-b11e-8d8c24988d40",
+      "createdAt": "2026-07-28T01:46:16.000Z",
+      "updatedAt": "2026-07-28T01:46:16.000Z",
+      "uid": "35240-2940b736-85b3-49f5-b11e-8d8c24988d40"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bigtableadmin.googleapis.com/v2"
+    }
+  ]
+}

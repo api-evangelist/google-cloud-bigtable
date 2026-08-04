@@ -1,0 +1,18 @@
+{
+  "provider": "google-cloud-bigtable",
+  "sources": [
+    "google-cloud-bigtable-clusters-api-openapi.yml",
+    "google-cloud-bigtable-instances-api-openapi.yml",
+    "google-cloud-bigtable-tables-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-cloud-bigtable-clusters-api-openapi.yml",
+    "google-cloud-bigtable-instances-api-openapi.yml",
+    "google-cloud-bigtable-tables-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

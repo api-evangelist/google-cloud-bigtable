@@ -1,0 +1,634 @@
+{
+  "info": {
+    "_postman_id": "67602ec0-db52-4c47-946a-2d78108c3e0c",
+    "name": "Google Cloud Bigtable Admin Clusters Tables API",
+    "description": "The Cloud Bigtable Admin API provides programmatic access to manage Cloud Bigtable instances, clusters, tables, and related resources. It allows administrators to create and configure Bigtable infrastructure for high-throughput, low-latency NoSQL workloads.\n\nContact Support:\n Name: Google Cloud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:18.000Z",
+    "updatedAt": "2026-07-28T01:46:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-67602ec0-db52-4c47-946a-2d78108c3e0c"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{project}",
+          "item": [
+            {
+              "name": "instances",
+              "item": [
+                {
+                  "name": "{instance}",
+                  "item": [
+                    {
+                      "name": "tables",
+                      "item": [
+                        {
+                          "name": "{table}",
+                          "item": [
+                            {
+                              "name": "Google Cloud Bigtable Get a table",
+                              "id": "721e7f7f-e9a2-48a9-9c28-197c87b17aa1",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "oauth2",
+                                  "oauth2": [
+                                    {
+                                      "key": "scope",
+                                      "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/bigtable.admin https://www.googleapis.com/auth/bigtable.admin.table",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "accessTokenUrl",
+                                      "value": "https://oauth2.googleapis.com/token",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "authUrl",
+                                      "value": "https://accounts.google.com/o/oauth2/auth",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "grant_type",
+                                      "value": "authorization_code",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:project/instances/:instance/tables/:table",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":project",
+                                    "instances",
+                                    ":instance",
+                                    "tables",
+                                    ":table"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "38880ad1-7081-425f-aafd-fe920c11e336",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "cd1872de-2923-43c9-a462-ed94beafdb12",
+                                      "key": "instance",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "e8b8bead-5b4b-445f-a943-27b291e93977",
+                                      "key": "table",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Gets metadata information about the specified table."
+                              },
+                              "response": [
+                                {
+                                  "id": "a7136640-736b-4511-a27d-dd3cb453dbe6",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:project/instances/:instance/tables/:table",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":project",
+                                        "instances",
+                                        ":instance",
+                                        "tables",
+                                        ":table"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "instance"
+                                        },
+                                        {
+                                          "key": "table"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"columnFamilies\": {\n    \"labore2f\": {\n      \"gcRule\": {\n        \"maxNumVersions\": \"<integer>\",\n        \"maxAge\": \"<string>\"\n      }\n    },\n    \"Excepteur0f1\": {\n      \"gcRule\": {\n        \"maxNumVersions\": \"<integer>\",\n        \"maxAge\": \"<string>\"\n      }\n    }\n  },\n  \"granularity\": \"TIMESTAMP_GRANULARITY_UNSPECIFIED\"\n}",
+                                  "createdAt": "2026-07-28T01:46:19.000Z",
+                                  "updatedAt": "2026-07-28T01:46:19.000Z",
+                                  "uid": "35240-a7136640-736b-4511-a27d-dd3cb453dbe6"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:46:19.000Z",
+                              "updatedAt": "2026-07-28T01:46:19.000Z",
+                              "uid": "35240-721e7f7f-e9a2-48a9-9c28-197c87b17aa1"
+                            },
+                            {
+                              "name": "Google Cloud Bigtable Delete a table",
+                              "id": "84714810-87e4-414c-8f5e-1a0c2c2c8a32",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "oauth2",
+                                  "oauth2": [
+                                    {
+                                      "key": "scope",
+                                      "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/bigtable.admin https://www.googleapis.com/auth/bigtable.admin.table",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "accessTokenUrl",
+                                      "value": "https://oauth2.googleapis.com/token",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "authUrl",
+                                      "value": "https://accounts.google.com/o/oauth2/auth",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "grant_type",
+                                      "value": "authorization_code",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:project/instances/:instance/tables/:table",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":project",
+                                    "instances",
+                                    ":instance",
+                                    "tables",
+                                    ":table"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "c3f67cae-0f7d-49c5-9832-baea0441135b",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "c777961b-fb40-4241-bd6e-3a00c7146ee4",
+                                      "key": "instance",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "b5f5d972-34e4-48e6-8c8c-e79b9b6be47c",
+                                      "key": "table",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Permanently deletes a specified table and all of its data."
+                              },
+                              "response": [
+                                {
+                                  "id": "e6adefe0-1177-4b3f-b097-d4a24a5d88a3",
+                                  "name": "Table deleted successfully",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:project/instances/:instance/tables/:table",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":project",
+                                        "instances",
+                                        ":instance",
+                                        "tables",
+                                        ":table"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "instance"
+                                        },
+                                        {
+                                          "key": "table"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:46:19.000Z",
+                                  "updatedAt": "2026-07-28T01:46:19.000Z",
+                                  "uid": "35240-e6adefe0-1177-4b3f-b097-d4a24a5d88a3"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:46:19.000Z",
+                              "updatedAt": "2026-07-28T01:46:19.000Z",
+                              "uid": "35240-84714810-87e4-414c-8f5e-1a0c2c2c8a32"
+                            }
+                          ],
+                          "id": "954156cb-5ad8-432d-b9b8-c622f7fa1fd9",
+                          "createdAt": "2026-07-28T01:46:19.000Z",
+                          "updatedAt": "2026-07-28T01:46:19.000Z",
+                          "uid": "35240-954156cb-5ad8-432d-b9b8-c622f7fa1fd9"
+                        },
+                        {
+                          "name": "Google Cloud Bigtable List tables",
+                          "id": "73fa5bc9-e8f1-4f86-8480-f38476bf964a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/bigtable.admin https://www.googleapis.com/auth/bigtable.admin.table",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://oauth2.googleapis.com/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://accounts.google.com/o/oauth2/auth",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:project/instances/:instance/tables?pageToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":project",
+                                "instances",
+                                ":instance",
+                                "tables"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "65a1051e-f369-4e78-b6e0-ba3e86987220",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "95386654-0903-4407-9940-8882252f3c7d",
+                                  "key": "instance",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists all tables served from a specified instance."
+                          },
+                          "response": [
+                            {
+                              "id": "9f9f4b46-1853-4d3b-8292-a011c0089ad2",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:project/instances/:instance/tables?pageToken=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":project",
+                                    "instances",
+                                    ":instance",
+                                    "tables"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "pageToken",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "instance"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"tables\": [\n    {\n      \"name\": \"<string>\",\n      \"columnFamilies\": {\n        \"dolorb39\": {\n          \"gcRule\": {\n            \"maxNumVersions\": \"<integer>\",\n            \"maxAge\": \"<string>\"\n          }\n        },\n        \"culpaff8\": {\n          \"gcRule\": {\n            \"maxNumVersions\": \"<integer>\",\n            \"maxAge\": \"<string>\"\n          }\n        },\n        \"ad_a6\": {\n          \"gcRule\": {\n            \"maxNumVersions\": \"<integer>\",\n            \"maxAge\": \"<string>\"\n          }\n        }\n      },\n      \"granularity\": \"TIMESTAMP_GRANULARITY_UNSPECIFIED\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"columnFamilies\": {\n        \"quis2\": {\n          \"gcRule\": {\n            \"maxNumVersions\": \"<integer>\",\n            \"maxAge\": \"<string>\"\n          }\n        },\n        \"consectetur__\": {\n          \"gcRule\": {\n            \"maxNumVersions\": \"<integer>\",\n            \"maxAge\": \"<string>\"\n          }\n        }\n      },\n      \"granularity\": \"TIMESTAMP_GRANULARITY_UNSPECIFIED\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:46:19.000Z",
+                              "updatedAt": "2026-07-28T01:46:19.000Z",
+                              "uid": "35240-9f9f4b46-1853-4d3b-8292-a011c0089ad2"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:46:19.000Z",
+                          "updatedAt": "2026-07-28T01:46:19.000Z",
+                          "uid": "35240-73fa5bc9-e8f1-4f86-8480-f38476bf964a"
+                        },
+                        {
+                          "name": "Google Cloud Bigtable Create a table",
+                          "id": "395c4ba4-1170-4ee6-a046-d96a55b36279",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/bigtable.admin https://www.googleapis.com/auth/bigtable.admin.table",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://oauth2.googleapis.com/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://accounts.google.com/o/oauth2/auth",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"tableId\": \"<string>\",\n  \"table\": {\n    \"name\": \"<string>\",\n    \"columnFamilies\": {\n      \"Lorem_7_\": {\n        \"gcRule\": {\n          \"maxNumVersions\": \"<integer>\",\n          \"maxAge\": \"<string>\"\n        }\n      },\n      \"nostrud3\": {\n        \"gcRule\": {\n          \"maxNumVersions\": \"<integer>\",\n          \"maxAge\": \"<string>\"\n        }\n      }\n    },\n    \"granularity\": \"MILLIS\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:project/instances/:instance/tables",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":project",
+                                "instances",
+                                ":instance",
+                                "tables"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "9045c91d-d1a9-4378-b88a-1780859d9161",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "a3cc9537-8378-484a-936d-bd9eee34d5e1",
+                                  "key": "instance",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Creates a new table in the specified instance."
+                          },
+                          "response": [
+                            {
+                              "id": "f6924c1e-b579-4084-a287-6fba9491f1c2",
+                              "name": "Table created successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"tableId\": \"<string>\",\n  \"table\": {\n    \"name\": \"<string>\",\n    \"columnFamilies\": {\n      \"Lorem_7_\": {\n        \"gcRule\": {\n          \"maxNumVersions\": \"<integer>\",\n          \"maxAge\": \"<string>\"\n        }\n      },\n      \"nostrud3\": {\n        \"gcRule\": {\n          \"maxNumVersions\": \"<integer>\",\n          \"maxAge\": \"<string>\"\n        }\n      }\n    },\n    \"granularity\": \"MILLIS\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:project/instances/:instance/tables",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":project",
+                                    "instances",
+                                    ":instance",
+                                    "tables"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "instance"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"columnFamilies\": {\n    \"labore2f\": {\n      \"gcRule\": {\n        \"maxNumVersions\": \"<integer>\",\n        \"maxAge\": \"<string>\"\n      }\n    },\n    \"Excepteur0f1\": {\n      \"gcRule\": {\n        \"maxNumVersions\": \"<integer>\",\n        \"maxAge\": \"<string>\"\n      }\n    }\n  },\n  \"granularity\": \"TIMESTAMP_GRANULARITY_UNSPECIFIED\"\n}",
+                              "createdAt": "2026-07-28T01:46:19.000Z",
+                              "updatedAt": "2026-07-28T01:46:19.000Z",
+                              "uid": "35240-f6924c1e-b579-4084-a287-6fba9491f1c2"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:46:19.000Z",
+                          "updatedAt": "2026-07-28T01:46:19.000Z",
+                          "uid": "35240-395c4ba4-1170-4ee6-a046-d96a55b36279"
+                        }
+                      ],
+                      "id": "6d70d304-f3cd-404d-ae6c-b3424eb682b9",
+                      "createdAt": "2026-07-28T01:46:19.000Z",
+                      "updatedAt": "2026-07-28T01:46:19.000Z",
+                      "uid": "35240-6d70d304-f3cd-404d-ae6c-b3424eb682b9"
+                    }
+                  ],
+                  "id": "1e9e6ade-4440-42f0-a2aa-6e4284cd7b64",
+                  "createdAt": "2026-07-28T01:46:19.000Z",
+                  "updatedAt": "2026-07-28T01:46:19.000Z",
+                  "uid": "35240-1e9e6ade-4440-42f0-a2aa-6e4284cd7b64"
+                }
+              ],
+              "id": "3e7e7991-67da-4ea7-8310-a7d54d9b40f9",
+              "createdAt": "2026-07-28T01:46:19.000Z",
+              "updatedAt": "2026-07-28T01:46:19.000Z",
+              "uid": "35240-3e7e7991-67da-4ea7-8310-a7d54d9b40f9"
+            }
+          ],
+          "id": "60c9e1c7-b361-4619-9364-c9196c98612d",
+          "createdAt": "2026-07-28T01:46:19.000Z",
+          "updatedAt": "2026-07-28T01:46:19.000Z",
+          "uid": "35240-60c9e1c7-b361-4619-9364-c9196c98612d"
+        }
+      ],
+      "id": "544ad4c3-9d5f-459f-8fd0-1c02d38a49db",
+      "createdAt": "2026-07-28T01:46:19.000Z",
+      "updatedAt": "2026-07-28T01:46:19.000Z",
+      "uid": "35240-544ad4c3-9d5f-459f-8fd0-1c02d38a49db"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bigtableadmin.googleapis.com/v2"
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "info": {
+    "_postman_id": "a2e6105a-bf80-4fa4-a845-50e2b4cb80cb",
+    "name": "Google Cloud Bigtable Admin Clusters API",
+    "description": "The Cloud Bigtable Admin API provides programmatic access to manage Cloud Bigtable instances, clusters, tables, and related resources. It allows administrators to create and configure Bigtable infrastructure for high-throughput, low-latency NoSQL workloads.\n\nContact Support:\n Name: Google Cloud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:04.000Z",
+    "updatedAt": "2026-07-28T01:46:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a2e6105a-bf80-4fa4-a845-50e2b4cb80cb"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{project}",
+          "item": [
+            {
+              "name": "instances",
+              "item": [
+                {
+                  "name": "{instance}",
+                  "item": [
+                    {
+                      "name": "clusters",
+                      "item": [
+                        {
+                          "name": "Google Cloud Bigtable List clusters",
+                          "id": "21061fa3-2694-49b6-8d58-6e6f81428059",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/bigtable.admin https://www.googleapis.com/auth/bigtable.admin.table",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://oauth2.googleapis.com/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://accounts.google.com/o/oauth2/auth",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:project/instances/:instance/clusters",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":project",
+                                "instances",
+                                ":instance",
+                                "clusters"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "1f738459-aec5-44ab-bfe6-747f03b825f4",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "2800046b-a0f2-417f-a16f-4d2064ddcf7b",
+                                  "key": "instance",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists information about clusters in an instance."
+                          },
+                          "response": [
+                            {
+                              "id": "88d2b172-8890-405b-8d1a-b38c261cc49d",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:project/instances/:instance/clusters",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":project",
+                                    "instances",
+                                    ":instance",
+                                    "clusters"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "instance"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"clusters\": [\n    {\n      \"name\": \"<string>\",\n      \"location\": \"<string>\",\n      \"state\": \"DISABLED\",\n      \"serveNodes\": \"<integer>\",\n      \"defaultStorageType\": \"HDD\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"location\": \"<string>\",\n      \"state\": \"READY\",\n      \"serveNodes\": \"<integer>\",\n      \"defaultStorageType\": \"STORAGE_TYPE_UNSPECIFIED\"\n    }\n  ],\n  \"failedLocations\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:46:04.000Z",
+                              "updatedAt": "2026-07-28T01:46:04.000Z",
+                              "uid": "35240-88d2b172-8890-405b-8d1a-b38c261cc49d"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:46:04.000Z",
+                          "updatedAt": "2026-07-28T01:46:04.000Z",
+                          "uid": "35240-21061fa3-2694-49b6-8d58-6e6f81428059"
+                        }
+                      ],
+                      "id": "bad966e4-2e7e-4260-9155-f9da92766b5c",
+                      "createdAt": "2026-07-28T01:46:04.000Z",
+                      "updatedAt": "2026-07-28T01:46:04.000Z",
+                      "uid": "35240-bad966e4-2e7e-4260-9155-f9da92766b5c"
+                    }
+                  ],
+                  "id": "fd16442c-7ace-478d-b9b6-04dea59044dd",
+                  "createdAt": "2026-07-28T01:46:04.000Z",
+                  "updatedAt": "2026-07-28T01:46:04.000Z",
+                  "uid": "35240-fd16442c-7ace-478d-b9b6-04dea59044dd"
+                }
+              ],
+              "id": "76b21bbf-7614-4230-bea2-babed523ad26",
+              "createdAt": "2026-07-28T01:46:04.000Z",
+              "updatedAt": "2026-07-28T01:46:04.000Z",
+              "uid": "35240-76b21bbf-7614-4230-bea2-babed523ad26"
+            }
+          ],
+          "id": "2bf486b4-fdc3-413d-99df-822371cf6bb4",
+          "createdAt": "2026-07-28T01:46:04.000Z",
+          "updatedAt": "2026-07-28T01:46:04.000Z",
+          "uid": "35240-2bf486b4-fdc3-413d-99df-822371cf6bb4"
+        }
+      ],
+      "id": "4576517d-f5cf-477e-bab3-b5417e8f7658",
+      "createdAt": "2026-07-28T01:46:04.000Z",
+      "updatedAt": "2026-07-28T01:46:04.000Z",
+      "uid": "35240-4576517d-f5cf-477e-bab3-b5417e8f7658"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bigtableadmin.googleapis.com/v2"
+    }
+  ]
+}
