@@ -37,6 +37,8 @@ apis:
   humanURL: https://cloud.google.com/bigtable/docs
   baseURL: https://bigtableadmin.googleapis.com/v2
   tags:
+  - Cluster
+  tags_raw:
   - Clusters
   properties:
   - type: OpenAPI
