@@ -5,6 +5,18 @@ description: >-
   operational workloads. It offers consistent sub-10ms latency and seamless scalability, making it ideal for time-series
   data, IoT, ad tech, fintech, and machine learning applications. Bigtable integrates with popular big data tools like
   Hadoop, Dataflow, and Dataproc.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
