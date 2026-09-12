@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Cloud Bigtable Admin Clusters Tables API
   description: The Cloud Bigtable Admin API provides programmatic access to manage Cloud Bigtable instances, clusters, tables, and related resources. It allows administrators to create and configure Bigtable infrastructure for high-throughput, low-latency NoSQL workloads.
@@ -148,6 +148,23 @@ paths:
         - https://www.googleapis.com/auth/bigtable.admin
 components:
   schemas:
+    CreateTableRequest:
+      type: object
+      properties:
+        tableId:
+          type: string
+        table:
+          $ref: '#/components/schemas/Table'
+      required:
+      - tableId
+    GcRule:
+      type: object
+      properties:
+        maxNumVersions:
+          type: integer
+        maxAge:
+          type: string
+          description: Duration string (e.g., 86400s)
     ListTablesResponse:
       type: object
       properties:
@@ -171,23 +188,6 @@ components:
           enum:
           - TIMESTAMP_GRANULARITY_UNSPECIFIED
           - MILLIS
-    GcRule:
-      type: object
-      properties:
-        maxNumVersions:
-          type: integer
-        maxAge:
-          type: string
-          description: Duration string (e.g., 86400s)
-    CreateTableRequest:
-      type: object
-      properties:
-        tableId:
-          type: string
-        table:
-          $ref: '#/components/schemas/Table'
-      required:
-      - tableId
     ColumnFamily:
       type: object
       properties:

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Cloud Bigtable Admin Clusters Instances API
   description: The Cloud Bigtable Admin API provides programmatic access to manage Cloud Bigtable instances, clusters, tables, and related resources. It allows administrators to create and configure Bigtable infrastructure for high-throughput, low-latency NoSQL workloads.
@@ -162,6 +162,42 @@ paths:
         - https://www.googleapis.com/auth/bigtable.admin
 components:
   schemas:
+    Cluster:
+      type: object
+      properties:
+        name:
+          type: string
+        location:
+          type: string
+        state:
+          type: string
+          enum:
+          - STATE_NOT_KNOWN
+          - READY
+          - CREATING
+          - RESIZING
+          - DISABLED
+        serveNodes:
+          type: integer
+        defaultStorageType:
+          type: string
+          enum:
+          - STORAGE_TYPE_UNSPECIFIED
+          - SSD
+          - HDD
+    ListInstancesResponse:
+      type: object
+      properties:
+        instances:
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        failedLocations:
+          type: array
+          items:
+            type: string
+        nextPageToken:
+          type: string
     CreateInstanceRequest:
       type: object
       properties:
@@ -207,29 +243,6 @@ components:
         createTime:
           type: string
           format: date-time
-    Cluster:
-      type: object
-      properties:
-        name:
-          type: string
-        location:
-          type: string
-        state:
-          type: string
-          enum:
-          - STATE_NOT_KNOWN
-          - READY
-          - CREATING
-          - RESIZING
-          - DISABLED
-        serveNodes:
-          type: integer
-        defaultStorageType:
-          type: string
-          enum:
-          - STORAGE_TYPE_UNSPECIFIED
-          - SSD
-          - HDD
     Operation:
       type: object
       properties:
@@ -246,19 +259,6 @@ components:
               type: integer
             message:
               type: string
-    ListInstancesResponse:
-      type: object
-      properties:
-        instances:
-          type: array
-          items:
-            $ref: '#/components/schemas/Instance'
-        failedLocations:
-          type: array
-          items:
-            type: string
-        nextPageToken:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2
