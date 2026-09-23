@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google Cloud Bigtable Admin Clusters Instances API
+  title: Google Cloud Bigtable Admin Instances API
   description: The Cloud Bigtable Admin API provides programmatic access to manage Cloud Bigtable instances, clusters, tables, and related resources. It allows administrators to create and configure Bigtable infrastructure for high-throughput, low-latency NoSQL workloads.
   version: v2
   contact:
@@ -162,57 +162,22 @@ paths:
         - https://www.googleapis.com/auth/bigtable.admin
 components:
   schemas:
-    Cluster:
+    Operation:
       type: object
       properties:
         name:
           type: string
-        location:
-          type: string
-        state:
-          type: string
-          enum:
-          - STATE_NOT_KNOWN
-          - READY
-          - CREATING
-          - RESIZING
-          - DISABLED
-        serveNodes:
-          type: integer
-        defaultStorageType:
-          type: string
-          enum:
-          - STORAGE_TYPE_UNSPECIFIED
-          - SSD
-          - HDD
-    ListInstancesResponse:
-      type: object
-      properties:
-        instances:
-          type: array
-          items:
-            $ref: '#/components/schemas/Instance'
-        failedLocations:
-          type: array
-          items:
-            type: string
-        nextPageToken:
-          type: string
-    CreateInstanceRequest:
-      type: object
-      properties:
-        instanceId:
-          type: string
-        instance:
-          $ref: '#/components/schemas/Instance'
-        clusters:
+        done:
+          type: boolean
+        metadata:
           type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Cluster'
-      required:
-      - instanceId
-      - instance
-      - clusters
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
     Instance:
       type: object
       properties:
@@ -243,22 +208,57 @@ components:
         createTime:
           type: string
           format: date-time
-    Operation:
+    Cluster:
       type: object
       properties:
         name:
           type: string
-        done:
-          type: boolean
-        metadata:
+        location:
+          type: string
+        state:
+          type: string
+          enum:
+          - STATE_NOT_KNOWN
+          - READY
+          - CREATING
+          - RESIZING
+          - DISABLED
+        serveNodes:
+          type: integer
+        defaultStorageType:
+          type: string
+          enum:
+          - STORAGE_TYPE_UNSPECIFIED
+          - SSD
+          - HDD
+    CreateInstanceRequest:
+      type: object
+      properties:
+        instanceId:
+          type: string
+        instance:
+          $ref: '#/components/schemas/Instance'
+        clusters:
           type: object
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-            message:
-              type: string
+          additionalProperties:
+            $ref: '#/components/schemas/Cluster'
+      required:
+      - instanceId
+      - instance
+      - clusters
+    ListInstancesResponse:
+      type: object
+      properties:
+        instances:
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        failedLocations:
+          type: array
+          items:
+            type: string
+        nextPageToken:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2
