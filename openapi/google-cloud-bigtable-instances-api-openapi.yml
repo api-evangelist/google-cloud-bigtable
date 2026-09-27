@@ -162,22 +162,34 @@ paths:
         - https://www.googleapis.com/auth/bigtable.admin
 components:
   schemas:
-    Operation:
+    CreateInstanceRequest:
       type: object
       properties:
-        name:
+        instanceId:
           type: string
-        done:
-          type: boolean
-        metadata:
+        instance:
+          $ref: '#/components/schemas/Instance'
+        clusters:
           type: object
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-            message:
-              type: string
+          additionalProperties:
+            $ref: '#/components/schemas/Cluster'
+      required:
+      - instanceId
+      - instance
+      - clusters
+    ListInstancesResponse:
+      type: object
+      properties:
+        instances:
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        failedLocations:
+          type: array
+          items:
+            type: string
+        nextPageToken:
+          type: string
     Instance:
       type: object
       properties:
@@ -208,6 +220,22 @@ components:
         createTime:
           type: string
           format: date-time
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+        metadata:
+          type: object
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
     Cluster:
       type: object
       properties:
@@ -231,34 +259,6 @@ components:
           - STORAGE_TYPE_UNSPECIFIED
           - SSD
           - HDD
-    CreateInstanceRequest:
-      type: object
-      properties:
-        instanceId:
-          type: string
-        instance:
-          $ref: '#/components/schemas/Instance'
-        clusters:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Cluster'
-      required:
-      - instanceId
-      - instance
-      - clusters
-    ListInstancesResponse:
-      type: object
-      properties:
-        instances:
-          type: array
-          items:
-            $ref: '#/components/schemas/Instance'
-        failedLocations:
-          type: array
-          items:
-            type: string
-        nextPageToken:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2
