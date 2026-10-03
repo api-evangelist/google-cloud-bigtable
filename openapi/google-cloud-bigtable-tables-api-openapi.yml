@@ -148,14 +148,6 @@ paths:
         - https://www.googleapis.com/auth/bigtable.admin
 components:
   schemas:
-    GcRule:
-      type: object
-      properties:
-        maxNumVersions:
-          type: integer
-        maxAge:
-          type: string
-          description: Duration string (e.g., 86400s)
     Table:
       type: object
       properties:
@@ -170,6 +162,19 @@ components:
           enum:
           - TIMESTAMP_GRANULARITY_UNSPECIFIED
           - MILLIS
+    GcRule:
+      type: object
+      properties:
+        maxNumVersions:
+          type: integer
+        maxAge:
+          type: string
+          description: Duration string (e.g., 86400s)
+    ColumnFamily:
+      type: object
+      properties:
+        gcRule:
+          $ref: '#/components/schemas/GcRule'
     CreateTableRequest:
       type: object
       properties:
@@ -179,11 +184,6 @@ components:
           $ref: '#/components/schemas/Table'
       required:
       - tableId
-    ColumnFamily:
-      type: object
-      properties:
-        gcRule:
-          $ref: '#/components/schemas/GcRule'
     ListTablesResponse:
       type: object
       properties:

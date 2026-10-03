@@ -47,6 +47,19 @@ paths:
         - https://www.googleapis.com/auth/bigtable.admin
 components:
   schemas:
+    ListClustersResponse:
+      type: object
+      properties:
+        clusters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cluster'
+        failedLocations:
+          type: array
+          items:
+            type: string
+        nextPageToken:
+          type: string
     Cluster:
       type: object
       properties:
@@ -70,19 +83,6 @@ components:
           - STORAGE_TYPE_UNSPECIFIED
           - SSD
           - HDD
-    ListClustersResponse:
-      type: object
-      properties:
-        clusters:
-          type: array
-          items:
-            $ref: '#/components/schemas/Cluster'
-        failedLocations:
-          type: array
-          items:
-            type: string
-        nextPageToken:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2
