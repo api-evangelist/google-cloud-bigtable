@@ -100,6 +100,9 @@ apis:
   - type: JSONSchema
     url: json-schema/instance-schema.json
 common:
+  - type: CapabilityMap
+    url: capabilities/google-cloud-bigtable-capability-edges.yml
+    name: Google Cloud Bigtable Business Capability Map
   - type: Website
     url: https://www.google.com/
   - type: PostmanWorkspace

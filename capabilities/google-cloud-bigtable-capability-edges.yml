@@ -1,0 +1,35 @@
+slug: google-cloud-bigtable
+provider: Google Cloud Bigtable
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Instances
+  spec_file: google-cloud-bigtable-instances-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.72
+  evidence: POST /projects/{project}/instances createInstance "Create an instance"; "create and configure
+    Bigtable infrastructure"
+  reason: Creating, updating and deleting managed database instances is cloud infrastructure provisioning,
+    a cross-industry IT capability.
+- tag: Clusters
+  spec_file: google-cloud-bigtable-clusters-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: '"The Cloud Bigtable Admin API provides programmatic access to manage Cloud Bigtable instances,
+    clusters, tables"; GET /projects/{project}/instances/{instance}/clusters listClusters'
+  reason: Listing database clusters is provisioning/administration of managed cloud data infrastructure
+    — IT Infrastructure Management.
