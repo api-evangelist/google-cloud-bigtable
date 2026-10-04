@@ -162,6 +162,73 @@ paths:
         - https://www.googleapis.com/auth/bigtable.admin
 components:
   schemas:
+    ListInstancesResponse:
+      type: object
+      properties:
+        instances:
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        failedLocations:
+          type: array
+          items:
+            type: string
+        nextPageToken:
+          type: string
+    CreateInstanceRequest:
+      type: object
+      properties:
+        instanceId:
+          type: string
+        instance:
+          $ref: '#/components/schemas/Instance'
+        clusters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Cluster'
+      required:
+      - instanceId
+      - instance
+      - clusters
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+        metadata:
+          type: object
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+    Cluster:
+      type: object
+      properties:
+        name:
+          type: string
+        location:
+          type: string
+        state:
+          type: string
+          enum:
+          - STATE_NOT_KNOWN
+          - READY
+          - CREATING
+          - RESIZING
+          - DISABLED
+        serveNodes:
+          type: integer
+        defaultStorageType:
+          type: string
+          enum:
+          - STORAGE_TYPE_UNSPECIFIED
+          - SSD
+          - HDD
     Instance:
       type: object
       properties:
@@ -192,73 +259,6 @@ components:
         createTime:
           type: string
           format: date-time
-    ListInstancesResponse:
-      type: object
-      properties:
-        instances:
-          type: array
-          items:
-            $ref: '#/components/schemas/Instance'
-        failedLocations:
-          type: array
-          items:
-            type: string
-        nextPageToken:
-          type: string
-    Cluster:
-      type: object
-      properties:
-        name:
-          type: string
-        location:
-          type: string
-        state:
-          type: string
-          enum:
-          - STATE_NOT_KNOWN
-          - READY
-          - CREATING
-          - RESIZING
-          - DISABLED
-        serveNodes:
-          type: integer
-        defaultStorageType:
-          type: string
-          enum:
-          - STORAGE_TYPE_UNSPECIFIED
-          - SSD
-          - HDD
-    Operation:
-      type: object
-      properties:
-        name:
-          type: string
-        done:
-          type: boolean
-        metadata:
-          type: object
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-            message:
-              type: string
-    CreateInstanceRequest:
-      type: object
-      properties:
-        instanceId:
-          type: string
-        instance:
-          $ref: '#/components/schemas/Instance'
-        clusters:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Cluster'
-      required:
-      - instanceId
-      - instance
-      - clusters
   securitySchemes:
     oauth2:
       type: oauth2
